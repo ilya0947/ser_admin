@@ -1,0 +1,328 @@
+@charset "UTF-8";
+.wrap {
+  width: 100%;
+  margin-top: 10px;
+  height: 200px;
+  overflow-Y: scroll;
+  list-style-type: none;
+}
+
+.wrap > table {
+  width: 100%;
+}
+
+.wrap > table > tr > td {
+  text-align: left;
+}
+
+.d-flex-j {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+  justify-content: space-around;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.item {
+  padding: 10px 0;
+  margin: 0 10px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+}
+
+.item > td {
+  padding: 5px;
+  width: 25%;
+}
+
+.item > td > img {
+  width: 20px;
+  height: 20px;
+}
+
+.cantries {
+  width: 100%;
+  margin-top: 10px;
+  padding: 7px;
+  min-height: 50px;
+  background-color: #eeeeee;
+  border: 2px solid rgba(0, 0, 0, 0.349);
+  border-radius: 5px;
+}
+
+.search {
+  margin: 5px 0;
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #008cff;
+  border-radius: 20px;
+}
+
+.selected {
+  height: 27px;
+  display: inline-block;
+  cursor: default;
+  padding: 4px;
+  border-radius: 5px;
+  margin: 3px;
+  color: #fff;
+}
+
+.selected > span {
+  line-height: 17px;
+}
+
+.selected > x {
+  cursor: pointer;
+  margin-left: 5px;
+  display: inline-block;
+  font-size: 25px;
+  line-height: 15px;
+  -webkit-transition: .5s all;
+  transition: .5s all;
+}
+
+.selected > x:hover {
+  -webkit-transform: scale(1.3);
+  transform: scale(1.3);
+}
+
+.selected span, .selected x {
+  vertical-align: top;
+}
+
+.section {
+  margin-top: 15px;
+}
+
+.section:first-child {
+  margin-top: 0;
+}
+
+.setBlock {
+  margin: 5px;
+  padding: 20px;
+  border: 1px solid rgba(0, 0, 0, 0.26);
+  border-radius: 25px;
+}
+
+input {
+  margin-top: 10px;
+  padding: 4px 10px;
+  border-radius: 5px;
+}
+
+.ip_input {
+  display: block;
+  cursor: text;
+  padding: 3px 10px;
+  overflow-Y: scroll;
+  background-color: #eeeeee;
+  border: 2px solid rgba(0, 0, 0, 0.349);
+  border-radius: 5px;
+  height: 110px;
+}
+
+.ip_input > input {
+  display: none;
+}
+
+.ip_input .input {
+  display: inline-block;
+}
+
+.ip_input .input:focus {
+  outline: none;
+}
+
+.ip_input .input.placehold::after {
+  opacity: 1;
+  -webkit-transform: none;
+  transform: none;
+  font-size: 15px;
+}
+
+.ip_input .input::after {
+  content: attr(data-placeholder);
+  display: inline-block;
+  opacity: 0;
+  font-size: 0;
+  -webkit-transform: translatex(6px);
+  transform: translatex(6px);
+  -webkit-transition: .3s all;
+  transition: .3s all;
+}
+
+.dang {
+  outline: 2px solid red !important;
+  outline-offset: 4px;
+}
+
+[data-blackPage] {
+  /*a:link {
+color: #0066cc; 
+}
+a:visited {color: #00cc63; }*/
+  /* Дерево многоуровневое
+-------------------------------- */
+  /* IE 6 Fixup */
+}
+
+[data-blackPage] p {
+  font-size: 1.2em;
+}
+
+[data-blackPage] a {
+  color: black;
+  text-decoration: none;
+  outline: none;
+}
+
+[data-blackPage] a.current {
+  color: black;
+  font-weight: bold;
+  background-color: #569fff;
+}
+
+[data-blackPage] #tree {
+  height: 500px;
+  margin-top: 10px;
+  border: 2px silver solid;
+  overflow-Y: scroll;
+  border-radius: 5px;
+  padding: 0 0 1em 0;
+  font-size: 1.3em;
+}
+
+[data-blackPage] span {
+  /* обертка пункта */
+  text-decoration: none;
+  display: block;
+  /* растянем до правого края блока */
+  margin: 0 0 0 1.2em;
+  background-color: transparent;
+  border: solid silver;
+  /* цвет линий */
+  border-width: 0 0 1px 1px;
+  /* границы: низ и лево */
+}
+
+[data-blackPage] span a {
+  /* тест элемента дерева */
+  display: block;
+  position: relative;
+  top: .95em;
+  /* смещаем узел на середину линии */
+  background-color: #fff;
+  /* закраска в цвет фона обязательна иначе будет видно линию */
+  margin: 0 0 .2em .7em;
+  /* делаем промежуток между узлами, отодвигаем левее  */
+  padding: 0 0.3em;
+  /* небольшой отступ от линии */
+}
+
+[data-blackPage] i, [data-blackPage] em {
+  position: absolute;
+  right: 10px;
+  -webkit-transition: .3s;
+  transition: .3s;
+}
+
+[data-blackPage] em {
+  top: 50%;
+  right: 20px;
+}
+
+[data-blackPage] em::before, [data-blackPage] em::after {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 10px;
+  background-color: black;
+  position: absolute;
+  -webkit-transform: rotateZ(45deg);
+  transform: rotateZ(45deg);
+}
+
+[data-blackPage] em::after {
+  -webkit-transform: translateX(-6.5px) rotateZ(-45deg);
+  transform: translateX(-6.5px) rotateZ(-45deg);
+}
+
+[data-blackPage] h4 {
+  font-size: 1em;
+  font-weight: bold;
+  margin: 0;
+  padding: 0 .25em;
+}
+
+[data-blackPage] ul,
+[data-blackPage] li {
+  list-style-image: none;
+  list-style-position: outside;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+[data-blackPage] ul li {
+  line-height: 1.2em;
+}
+
+[data-blackPage] ul li ul {
+  display: none;
+  /* узлы свернуты */
+}
+
+[data-blackPage] ul li ul li {
+  margin: 0 0 0 1.2em;
+  border-left: 1px solid silver;
+  /* цвет вертикальной линии между узлами */
+}
+
+[data-blackPage] li.last {
+  /* последний узел, соединительную линию к след. узлу убираем */
+  border: none;
+}
+
+[data-blackPage] .marker {
+  /* маркер раскрытия списка в закрытом состоянии */
+  border-color: transparent transparent transparent gray;
+  border-style: solid;
+  border-width: .25em 0 .25em .5em;
+  margin: .35em .25em 0 0;
+  float: left;
+  width: 0px;
+  height: 0px;
+  line-height: 0px;
+}
+
+[data-blackPage] .active {
+  -webkit-transform: rotateZ(180deg);
+  transform: rotateZ(180deg);
+}
+
+[data-blackPage] .marker.open {
+  /* маркер раскрытия списка в открытом состоянии */
+  border-color: gray transparent transparent transparent;
+  border-width: .5em .25em 0 .25em;
+}
+
+[data-blackPage] * html #tree * {
+  height: 1%;
+}
+
+[data-blackPage] * html .marker {
+  border-style: dotted dotted dotted solid;
+}
+
+[data-blackPage] * html .marker.open {
+  border-style: solid dotted dotted dotted;
+}

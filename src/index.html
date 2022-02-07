@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+
+    <title>Ta4ka</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Ta4ka</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Stat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Create</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row mt-3">
+            <div class="col">
+                <h2>Create new campaign</h2>
+            </div>
+        </div>
+        <form>
+            <div class="row mt-3">
+                <div data-cantries="#showCantries #searchCantries #listCantries #selectedCantries"
+                    class="col-4 setBlock">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="showCantries" checked>
+                        <label class="form-check-label" for="showCantries">Allow countries</label>
+                    </div>
+                    <input class="search" type="text" placeholder="Search canrties" id="searchCantries">
+                    <div class="wrap">
+                        <table id="listCantries">
+                            <tbody>
+                                <tr class="item" value="ru">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Russia</td>
+                                    <td>(RU)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="es">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Spain</td>
+                                    <td>(ES)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="hk">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Hongkong</td>
+                                    <td>(HK)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="nl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Nethderland</td>
+                                    <td>(NL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="pl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Poland</td>
+                                    <td>(PL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="cl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Chile</td>
+                                    <td>(CL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="il">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Ireland</td>
+                                    <td>(IL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="ru">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Russia</td>
+                                    <td>(RU)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="es">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Spain</td>
+                                    <td>(ES)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="hk">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Hongkong</td>
+                                    <td>(HK)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="nl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Nethderland</td>
+                                    <td>(NL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="pl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Poland</td>
+                                    <td>(PL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="cl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Chile</td>
+                                    <td>(CL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="il">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Ireland</td>
+                                    <td>(IL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="selectedCantries" class="cantries"></div>
+                </div>
+                <div data-languages="#showLang #searchLang #listLang #selectedLang" class="col-4 setBlock">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" role="switch" id="showLang" checked>
+                        <label class="form-check-label" for="showLang">Allow languages</label>
+                    </div>
+                    <input class="search" type="text" placeholder="Search languages" id="searchLang">
+                    <div class="wrap">
+                        <table id="listLang">
+                            <tbody>
+                                <tr class="item" value="ru">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Russia</td>
+                                    <td>(RU)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="es">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Spain</td>
+                                    <td>(ES)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="hk">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Hongkong</td>
+                                    <td>(HK)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="nl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Nethderland</td>
+                                    <td>(NL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="pl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Poland</td>
+                                    <td>(PL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="cl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Chile</td>
+                                    <td>(CL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="il">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Ireland</td>
+                                    <td>(IL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="ru">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Russia</td>
+                                    <td>(RU)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="es">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Spain</td>
+                                    <td>(ES)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="hk">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Hongkong</td>
+                                    <td>(HK)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="nl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Nethderland</td>
+                                    <td>(NL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="pl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Poland</td>
+                                    <td>(PL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="cl">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Chile</td>
+                                    <td>(CL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                                <tr class="item" value="il">
+                                    <td><img src="https://www.mos.ru/upload/iblock/6d2/6d281db117ff35e4d886d0c55b8bed48.jpeg"
+                                            alt="img"></td>
+                                    <td>Ireland</td>
+                                    <td>(IL)</td>
+                                    <td><a href="#" class="btn btn-success">add</a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="selectedLang" class="cantries"></div>
+                </div>
+                <div class="col-3 setBlock">
+                    <div data-ip="#showIp #ipCont #ipInput #inputSubmitIp" class="section">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="showIp" checked>
+                            <label class="form-check-label" for="showIp">White list ip</label>
+                        </div>
+                        <div id="ipCont" class="ip_input">
+                            <span id="ipInput" class="input placehold" data-placeholder="Enter ip"
+                                contenteditable></span>
+                            <input id="inputSubmitIp" name="ip">
+                        </div>
+                    </div>
+                    <div data-host="#showHost #hostCont #hostInput #inputSubmitHost" class="section">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="showHost" checked>
+                            <label class="form-check-label" for="showHost">White list host</label>
+                        </div>
+                        <div id="hostCont" class="ip_input">
+                            <span id="hostInput" class="input placehold" data-placeholder="Enter host"
+                                contenteditable></span>
+                            <input id="inputSubmitHost" name="host">
+                        </div>
+                    </div>
+                    <div data-force class="section">
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" role="switch" id="forceBlock" checked>
+                            <label class="form-check-label" for="forceBlock">Force block</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4 setBlock">
+                    <div data-blackPage="#search-path #tree" class="section">
+                        <div>
+                            <h4>Black page</h4>
+                            <input id="search-path" type="text" placeholder="Search path">
+                            <div id="tree">
+                                <ul>
+                                    <li><span><a href="#!">ajax</a></span>
+                                        <ul>
+                                            <li><span><a href="#!">gelss</a></span></li>
+                                            <li><span><a href="#!">kvan</a></span></li>
+                                            <li><span><a href="#!">olepy</a></span></li>
+                                        </ul>
+                                    </li>
+                                    <li><span><a href="#!">combo</a></span>
+                                        <ul>
+                                            <li><span><a href="#!">won</a></span></li>
+                                            <li><span><a href="#!">kvan</a></span></li>
+                                            <li><span><a href="#!">aoron</a></span></li>
+                                            <li><span><a href="#!">test</a></span>
+                                                <ul>
+                                                    <li><span><a href="#!">test1</a></span></li>
+                                                    <li><span><a href="#!">test2</a></span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li><span><a href="#!">test dir</a></span>
+                                        <ul>
+                                            <li><span><a href="#!">test1</a></span></li>
+                                            <li><span><a href="#!">test2 dir</a></span>
+                                                <ul>
+                                                    <li><span><a href="#!">test1</a></span></li>
+                                                    <li><span><a href="#!">test2</a></span></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            <!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js"type="text/javascript"></script>
+                            <script>
+                                /*<![CDATA[*/
+                                /*
+                                Построение дерева по готовому HTML списку.
+
+                                Выделяем узлы имющие поддеревья и добавляем у ним метку.
+                                Функция определяет поведение узлов дерева при клике на них.
+                                    - Изменяет состояние маркера раскрытия (открыт/закрыт).
+                                    - Узлы содержащие в себе другие узлы, по клику разворачиваются
+                                    или сворачиваются, в зависимости от текущего состояния.
+                                    - При переходе с одного узла на другой снимается выделение (.current)
+                                    и пеходит на выбранный узел.
+                                    - Определяет последний узел с поддеревом и скрывает соединительную
+                                    линию до следующего узла этого уровня.
+                                */
+                                $(document).ready(function () {
+                                    /* Расставляем маркеры на узлах, имющих внутри себя поддерево.
+                                        Выбираем элементы 'li' которые имеют вложенные 'ul', ставим для них
+                                        маркер, т.е. находим в этом 'li' вложенный тег 'a'
+                                        и в него дописываем маркер '<em class="marker"></em>'.
+                                        a:first используется, чтобы узлам ниже 1го уровня вложенности
+                                        маркеры не добавлялись повторно.
+                                    */
+                                    $('#multi-derevo li:has("ul")').find('a:first').prepend(
+                                        '<em class="marker"></em>');
+                                    // вешаем событие на клик по ссылке
+                                    $('#multi-derevo li span').click(function () {
+                                        // снимаем выделение предыдущего узла
+                                        $('a.current').removeClass('current');
+                                        var a = $('a:first', this.parentNode);
+                                        // Выделяем выбранный узел
+                                        //было a.hasClass('current')?a.removeClass('current'):a.addClass('current');
+                                        a.toggleClass('current');
+                                        var li = $(this.parentNode);
+                                        /* если это последний узел уровня, то соединительную линию к следующему
+                                            рисовать не нужно */
+                                        if (!li.next().length) {
+                                            /* берем корень разветвления <li>, в нем находим поддерево <ul>,
+                                                выбираем прямых потомков ul > li, назначаем им класс 'last' */
+                                            li.find('ul:first > li').addClass('last');
+                                        }
+                                        // анимация раскрытия узла и изменение состояния маркера
+                                        var ul = $('ul:first', this.parentNode); // Находим поддерево
+                                        if (ul.length) { // поддерево есть
+                                            ul.slideToggle(300); //свернуть или развернуть
+                                            // Меняем сосотояние маркера на закрыто/открыто
+                                            var em = $('em:first', this.parentNode); // this = 'li span'
+                                            // было em.hasClass('open')?em.removeClass('open'):em.addClass('open');
+                                            em.toggleClass('open');
+                                        }
+                                    });
+                                })
+                                /*]]>*/
+                            </script> -->
+
+                            <!-- <script type="text/javascript">
+                                
+                                (function() {
+                                    var tree_init = function() {
+                                        this.clearWhitespace = function(element) {
+                                            var i, array = [];
+                                            for (i=0; i<element.childNodes.length; i++) {
+                                                if (element.childNodes[i].nodeType == 3) {
+                                                    element.childNodes[i].nodeValue.match(/^[\s\r\n]+$/m) &&
+                                                        array.push(element.childNodes[i]);
+                                                } else {
+                                                    this.clearWhitespace(element.childNodes[i]);
+                                                }
+                                            }
+                                            for (i=0; i<array.length; i++) {                            
+                                                array[i].parentNode.removeChild(array[i]);
+                                            }
+                                        }
+                                        this.addMarker = function() {
+                                            var ul_item = this.tree.getElementsByTagName("ul");
+                                            for (var i=0; i<ul_item.length; i++) {
+                                                var li_item = ul_item[i].getElementsByTagName("li");
+                                                for (var j=0; j<li_item.length; j++) {
+                                                    var child = li_item[j].getElementsByTagName("ul");
+                                                    if (child.length > 0 && li_item[j].parentNode == ul_item[i]) {
+                                                        var a_item = li_item[j].getElementsByTagName("a");
+                                                        if (a_item.length > 0 && a_item[0].parentNode.parentNode == li_item[j]) {
+                                                            a_item[0].innerHTML = '<em class="marker"></em>' + a_item[0].innerHTML;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        this.addEvent = function() {
+                                            var span_item = this.tree.getElementsByTagName("span");
+                                            var thisCopy  = this;
+                                            for (var i=0; i<span_item.length; i++) {
+                                                span_item[i].onclick = function() { thisCopy.click(this) };
+                                            }
+                                        }
+                                        this.setCurrent = function(a) {
+                                            if (this.current)
+                                                this.current.className =
+                                                this.current.className.replace("current", "");
+                    
+                                            this.current = a;
+                                            a.className += " current";
+                                        }
+                                        this.toggleClass = function(elem, classname) {
+                                            if (elem.className.indexOf(classname) != -1) {
+                                                elem.className = elem.className.replace(classname);
+                                                elem.className = elem.className.replace("  ", " ");
+                                            } else {
+                                                elem.className += " " + classname;
+                                            }
+                                        }
+                                        this.click = function(span) {
+                                            var subtree;
+                                            var a  = span.firstChild;
+                                            var li = span.parentNode;
+                                            var ul = span.nextSibling;
+                                            var em = a.firstChild;
+                                            this.setCurrent(a);
+                                            
+                                            if (li.nextSibling == null) {
+                                                li.hasChildNodes() && (subtree = li.childNodes[1]);
+                                                for (var i=0; i<subtree.childNodes.length; i++)
+                                                    subtree.childNodes[i].className = "last";
+                                            }
+                                            if (ul && ul.nodeName.toLowerCase() == "ul")
+                                                ul.style.display = ul.offsetWidth > 0 ? "none" : "block";
+                                            if (em && em.nodeName.toLowerCase() == "em")
+                                                this.toggleClass(em, "open");
+                                        }
+                    
+                                        this.tree = document.getElementById('tree');
+                                        this.clearWhitespace(this.tree);
+                                        this.addMarker();
+                                        this.addEvent();
+                                    }
+                                    if (window.attachEvent) {
+                                        window.attachEvent("onload", tree_init);
+                                    } else {
+                                        window.addEventListener("load", tree_init, false);
+                                    }
+                                })()
+                                /*]]>*/
+                            </script> -->
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
+    <script src="./js/script.js"></script>
+</body>
+
+</html>
