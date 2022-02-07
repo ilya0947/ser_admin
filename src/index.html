@@ -314,6 +314,34 @@
                                             <li><span><a href="#!">gelss</a></span></li>
                                             <li><span><a href="#!">kvan</a></span></li>
                                             <li><span><a href="#!">olepy</a></span></li>
+                                            <li><span><a href="#!">ajax2</a></span>
+                                                <ul>
+                                                    <li><span><a href="#!">gelss</a></span></li>
+                                                    <li><span><a href="#!">kvan</a></span></li>
+                                                    <li><span><a href="#!">olepy</a></span></li>
+                                                    <li><span><a href="#!">ajax3</a></span>
+                                                        <ul>
+                                                            <li><span><a href="#!">gelss</a></span></li>
+                                                            <li><span><a href="#!">kvan</a></span></li>
+                                                            <li><span><a href="#!">olepy</a></span></li>
+                                                            <li><span><a href="#!">ajax4</a></span>
+                                                                <ul>
+                                                                    <li><span><a href="#!">gelss</a></span></li>
+                                                                    <li><span><a href="#!">kvan</a></span></li>
+                                                                    <li><span><a href="#!">olepy</a></span></li>
+                                                                    <li><span><a href="#!">ajax5</a></span>
+                                                                        <ul>
+                                                                            <li><span><a href="#!">gelss</a></span></li>
+                                                                            <li><span><a href="#!">kvan</a></span></li>
+                                                                            <li><span><a href="#!">olepy</a></span></li>
+                                                                        </ul>
+                                                                    </li>
+                                                                </ul>
+                                                            </li>
+                                                        </ul>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                         </ul>
                                     </li>
                                     <li><span><a href="#!">combo</a></span>
@@ -464,6 +492,7 @@
                                             
                                             if (li.nextSibling == null) {
                                                 li.hasChildNodes() && (subtree = li.childNodes[1]);
+                                                console.log(subtree)
                                                 for (var i=0; i<subtree.childNodes.length; i++)
                                                     subtree.childNodes[i].className = "last";
                                             }

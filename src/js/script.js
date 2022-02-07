@@ -159,10 +159,44 @@ window.addEventListener('DOMContentLoaded', () => {
         const idArr = wrap.getAttribute(selector.replace(/\[|\]/g, '')).split(' ');
         const search = wrap.querySelector(idArr[0]);
         const tree = wrap.querySelector(idArr[1]);
-        let count = 0;
+        let i = 0;
         let arrayLink = [];
+        const pathForm = () => {
+            let path = '';
+            return function pars(elem) {
+                if (elem.parentNode.nodeName !== 'DIV') {
+                    const parent = elem.parentNode;
+                    if (parent.nodeName === 'LI' && parent.querySelector('[data-dir]')) {
+                        path = parent.querySelector('[data-dir]').getAttribute('data-dir')+path;
+                    }
+                    pars(parent);
+                }
+                return path;
+            }
+        }
+        const showBranch = (elem) => {
+            const parent = elem.parentNode;
+             if (parent.nodeName !== 'DIV') {
+                 if (parent.offsetWidth == 0) parent.style.display = 'block';
+               
+                showBranch(parent);
+            }
+        }
+        const hideBranch = (tree) => {
+            const chil = tree.children;
+            if (chil.length != 0) {
+                [...chil].forEach(item => {
+                    if (item.style.display) item.removeAttribute('style')
+                    hideBranch(item);
+                });
+            }
+        }
 
-        function parser(elem) {
+
+
+
+
+        function parserTree(elem) {
             const child = elem.children;
             
             if (child.length > 0) {
@@ -170,23 +204,26 @@ window.addEventListener('DOMContentLoaded', () => {
                     if (child[i].tagName === 'LI' && child[i].querySelector('ul')) {
                         const a_item = child[i].querySelector('a');
                         const ul_item = child[i].querySelector('ul');
+                        a_item.setAttribute('data-dir', a_item.textContent+'/')
                         a_item.innerHTML = `<em></em>` + a_item.innerHTML;
                         a_item.addEventListener('click', (e) => {
                             e.preventDefault();
                             ul_item.style.display = ul_item.offsetWidth == 0 ? 'block' : '';
                             a_item.querySelector('em').classList.toggle('active');
                         });
+                        if (!child[i].nextElementSibling) {
+                            child[i].children[1].querySelectorAll('li').forEach(li => li.className = 'last');
+                        }
                     }
                     if (child[i].tagName === 'LI' && !child[i].querySelector('ul')) {
-                        // child[i].className = 'last';
-                        count++;
                         const a_item = child[i].querySelector('a');
+                        a_item.setAttribute('data-value', pathForm()(a_item)+ a_item.textContent);
                         arrayLink.push(a_item);
-                        console.log(child[i])
 
                         a_item.innerHTML = `<i>select</i>` + a_item.innerHTML;
                         a_item.addEventListener('click', (e) => {
                             e.preventDefault();
+                            console.log(a_item.getAttribute('data-value'));
                             if (a_item.className ==='') {
                                 arrayLink.forEach(link => {
                                     link.className = '';
@@ -200,15 +237,28 @@ window.addEventListener('DOMContentLoaded', () => {
                             }
                         });
                     }
-                    parser(child[i]);
+                    parserTree(child[i]);
                 }
             }
         }
 
-        parser(tree);
+        parserTree(tree);
 
 
-        // console.log(search, tree)
+        search.addEventListener('input', (e) => {
+            const keyord = e.target.value;
+            hideBranch(tree);
+            arrayLink.forEach(link => {
+                const check = link.textContent.replace('select', '');
+                if (check.startsWith(keyord) && keyord !== '') {
+                    // console.log(link.textContent.replace('select', ''))
+                    showBranch(link);
+                }
+            })
+        });
+
+
+        // console.log(document.querySelector('i'))
         
     }
 
