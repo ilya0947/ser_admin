@@ -6,10 +6,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const data = {
             domain: document.querySelector('#domain').value,
-            contries: {},
+            countries: {},
             language: {},
-            ip: {},
-            host: {},
+            whiteListIp: {},
+            whiteListHost: {},
             blackPage: '',
             forceBlock: document.querySelector('#forceBlock').checked,
             upload: null,
@@ -17,6 +17,7 @@ window.addEventListener('DOMContentLoaded', () => {
         };
         const regURL = /^(?:(?:https?|ftp|telnet):\/\/(?:[a-z0-9_-]{1,32}(?::[a-z0-9_-]{1,32})?@)?)?(?:(?:[a-z0-9-]{1,128}\.)+(?:com|net|org|mil|edu|arpa|ru|gov|biz|info|aero|inc|name|[a-z]{2})|(?! 0)(?:(?! 0[^.]|255)[ 0-9]{1,3}\.){3}(?! 0|255)[ 0-9]{1,3})(?:\/[a-zа-я0-9.,_@%&?+=\~\/-]*)?(?:#[^ \'\"&<>]*)?$/i;
         const domainInput = document.querySelector('#domain');
+        const safePageInput = document.querySelector('#safePage');
         const blackPageValid = document.querySelector('#bp');
 
         function addObjItem(obj, key, value) {
@@ -32,40 +33,47 @@ window.addEventListener('DOMContentLoaded', () => {
             div.setAttribute('data-signal', '');
             div.style.cssText = `
                 width: max-content;
-                padding: 20px;
+                padding: 3px;
+                line-height: 12px;
                 text-align: center;
                 border-color: #fff;
                 border: 2px solid black;
                 border-radius: 3px;`;
-                div.textContent = `${elem.value } не валидный!`;
+            div.textContent = `${elem.value } не валидный!`;
             if (!elem.parentNode.querySelector('[data-signal]')) {
                 elem.parentNode.appendChild(div);
                 setTimeout(() => div.remove(), 2000);
             }
         }
         
-        function inValidInput(input, cb, reg=/[^*]/) {
-            if (!reg.test(input.value) && input.value !== '') {
-                input.focus();
+        function inValidInput(input, reg=/[^*]/, cb=(()=> {})) {
+            if (!reg.test(input.value) || input.value == '') {
+                // input.focus();
                 input.classList.add('warn');
                 cb(input);
             }
         }
 
         (function() {
-            document.querySelector('#safePage').addEventListener('input', (e) => {
+            safePageInput.addEventListener('input', (e) => {
+                if (safePageInput.classList.contains('warn')) safePageInput.classList.remove('warn');
                 data.safePage = e.target.value;
             });
             
             domainInput.addEventListener('input', (e) => {
-                domainInput.className = '';
+                if (domainInput.classList.contains('warn') && regURL.test(domainInput.value)) domainInput.classList.remove('warn');
                 data.domain = e.target.value;
             });
 
             domainInput.addEventListener('blur', () => {
-                inValidInput(domainInput, errorSignal, regURL);
+                inValidInput(domainInput, regURL);
             });
-    
+            
+            safePageInput.addEventListener('blur', () => {
+                if (safePageInput.value == '') safePageInput.classList.add('warn');
+                
+            });
+
             document.querySelector('#forceBlock').addEventListener('click', (e) => {
                 data.forceBlock = e.target.checked;
             });
@@ -132,7 +140,8 @@ window.addEventListener('DOMContentLoaded', () => {
                         
                     wrapsBtns.forEach(tr => {
                         const btn = tr.querySelector('a');
-                        btn.classList.remove('btn-danger');
+                        btn.classList.remove('btn-secondary');
+                        btn.classList.add('btn-light');
                         btn.removeAttribute('data-add');
                         btn.textContent = 'add';
                     });
@@ -175,7 +184,8 @@ window.addEventListener('DOMContentLoaded', () => {
                     }
                 });
                 }
-                btn.classList.toggle('btn-danger');
+                btn.classList.toggle('btn-secondary');
+                btn.classList.toggle('btn-light');
             };
 
             listItem.forEach(item => {
@@ -191,7 +201,7 @@ window.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        addValue('[data-contries]', data.contries);
+        addValue('[data-contries]', data.countries);
         addValue('[data-languages]', data.language);
 
 
@@ -292,13 +302,13 @@ window.addEventListener('DOMContentLoaded', () => {
 
         setData({
             selector: '[data-ip]',
-            obj: data.ip,
+            obj: data.whiteListIp,
             regTest: /^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/,
             reg: /[^0-9 .]/
         });
         setData({
             selector:'[data-host]',
-            obj: data.host,
+            obj: data.whiteListHost,
             regTest: regURL
         });
 
@@ -353,9 +363,10 @@ window.addEventListener('DOMContentLoaded', () => {
                         if (child[i].tagName === 'LI' && child[i].querySelector('ul')) {
                             const a_item = child[i].querySelector('a');
                             const ul_item = child[i].querySelector('ul');
+                            ul_item.style.display = ul_item.offsetWidth == 0 ? 'block' : '';
                             arrayLi.push(child[i]);
                             a_item.setAttribute('data-dir', a_item.textContent+'/')
-                            a_item.innerHTML = `<em></em>` + a_item.innerHTML;
+                            a_item.innerHTML = `<em class="active"></em>` + a_item.innerHTML;
                             a_item.addEventListener('click', (e) => {
                                 e.preventDefault();
                                 ul_item.style.display = ul_item.offsetWidth == 0 ? 'block' : '';
@@ -437,10 +448,9 @@ window.addEventListener('DOMContentLoaded', () => {
         function formSubmit(selector)  {
             const form = document.querySelector(selector);
 
-            form.addEventListener('invalid', () => {
-                console.log('invalid')
-                domainInput.className = 'warn';
-            });
+            form.addEventListener('invalid', (e) => {
+                e.target.classList.add('warn');
+            }, true);
 
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
@@ -448,7 +458,13 @@ window.addEventListener('DOMContentLoaded', () => {
                 if (data.blackPage == '') {
                     blackPageValid.className = 'warn';
                 } else if (!regURL.test(domainInput.value)) {
-                    inValidInput(domainInput, errorSignal, regURL);
+                    domainInput.classList.add('inputSignal');
+                    domainInput.onanimationend = () => {
+                        domainInput.classList.remove('inputSignal')
+                        domainInput.onanimationend = false;
+                    }
+                } else if(data.safePage == '') {
+                    safePageInput.classList.add('warn');
                 } else {
 
                     const formData = {};
